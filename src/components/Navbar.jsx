@@ -34,8 +34,7 @@ const Navbar = () => {
 
 
        <NavLink 
-           className={`px-4 py-2 bg-gray-900 rounded ${(e) => 
-            e.isActive ? "text-red-300" : ""}`}
+           className={(e) => (e.isActive ? "text-red-300" : "")}  
             to="/create-recipe"
         >
            Create Recipe
