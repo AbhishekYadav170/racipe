@@ -1,12 +1,22 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'; 
+import { nanoid } from "nanoid";
+import { useContext } from 'react';
+import { recipeContext } from '../context/RacipeContext.jsx';
 
 const Create = () => {
     
-    const {register, handleSubmit} = useForm();
+    const { data, setData } = useContext(recipeContext);
+    const {register, handleSubmit, reset} = useForm();
 
-    const SubmitHandler = (data) => {
-        console.log(data);
+    const SubmitHandler = (racipe) => {
+
+        racipe.id = nanoid();
+        // console.log(racipe);
+
+        setData([...data, racipe]);
+
+        reset();
     };
 
     return (
@@ -33,6 +43,13 @@ const Create = () => {
                 This is the error is shown
             </small>
          */}
+
+          <input 
+                className="block border-b outline-0 p-2"
+                {...register("chef")}
+                 type="text"
+                placeholder="Chef Name"
+            />
 
            <textarea
                 className="block border-b outline-0 p-2"
