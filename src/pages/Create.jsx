@@ -29,7 +29,7 @@ const Create = () => {
                  placeholder="Enter Image Url"
             />
             <small className="text-red-400">
-                This is the error is shown
+                This is the error is shown 
             </small>
 
 
